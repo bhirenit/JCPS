@@ -1,0 +1,580 @@
+/* #b34700 */
+/* bluewhale  - dark: 1b548d - light: 598ea6    --form-theme-color-1: #49274a;
+    --form-theme-color-1-light: #94618e;
+    --form-theme-color-1-input-light: #eddeed; */
+:root {
+    --form-theme-color-1: #003566;
+    --form-theme-color-1-light: #004f99;
+    --form-theme-color-1-input-light: #eddeed;
+
+    --dark-navbar-color: #343a40;
+
+    --light-background: #f2f2f2;
+    --light-background-soft: #bfbfbf;
+
+    /* sand color */
+    --light-background-color: #fdf5e6; 
+
+    /* whiteish text color */
+    --whitish-text-color: aliceblue;
+
+    --general-font-weight: 500;
+}
+body {
+    background-color: var(--light-background);
+}
+
+.container-95 {
+    width: 95%;
+    margin: 10px auto;
+}
+.container-75 {
+  width: 75%;
+  margin: auto;
+}
+.container-70 {
+  width: 70%;
+  margin: auto;
+}
+.my-form-heading {
+    background-color: var(--form-theme-color-1-light);
+    padding: 5px 20px;
+    color: aliceblue;
+    margin-top: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.my-form {
+    margin: 10px auto;
+    border-right: 2px solid var(--form-theme-color-1-light);
+    border-left: 2px solid var(--form-theme-color-1-light);
+    border-bottom: 2px solid var(--form-theme-color-1-light);
+    border-radius: 10px;
+    background-color: var(--whitish-text-color) !important ;
+}
+.my-submit-div {
+    width: 100%;   
+}
+.my-submit-div input {
+    background-color: var(--form-theme-color-1);  
+    margin: 10px;  
+}
+.my-submit-div input:hover {
+    background-color: var(--form-theme-color-1-light);
+}
+.my-form-row label {
+    font-size: 15px;
+    font-weight: var(--general-font-weight);
+}
+.my-form-row input {
+    padding: 3px 5px;
+    font-size: 15px;
+    height: 25px;
+    width: 100%;
+    font-weight: var(--general-font-weight);
+}
+.my-checkbox{
+    height: 15px !important;
+    width: 15px !important;
+    font-weight: var(--general-font-weight);
+}
+.my-form-row textarea {
+    padding: 3px 5px;
+    font-size: 15px;
+    font-weight: var(--general-font-weight);
+}
+.my-form-row h6 {
+    width: 100%;
+    color: gray;
+    border-bottom: 1px solid gray;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.my-form-row select {
+    width: 190px;
+    font-weight: var(--general-font-weight);
+} 
+.my-form-row button {
+    width: 100%;
+    height: 28px;
+}
+th {
+    background-color: var(--form-theme-color-1-light);
+    color: white;
+}
+
+.my-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: var(--dark-navbar-color);
+    width: 100%;
+    color: white;
+}
+.my-footer-copyright {
+    font-weight: 100;
+}
+.my-new-header {
+    background-color: var(--form-theme-color-1);
+}
+.my-hamburger-btn {
+    background-color: var(--form-theme-color-1);
+    color: white;
+}
+.my-new-header span {
+    font-size: 20px;
+    position: relative;
+    top: 6px;
+    color: white;
+}
+/* login form */
+.my-login-header {
+    background-color: var(--form-theme-color-1);
+    padding: 10px 4px;
+    color: white;    
+}
+.my-login-header h4 {
+    font-size: 25px !important;
+}
+.my-login-form {
+    background-color: var(--light-background-color);
+    border: 2px solid var(--form-theme-color-1);
+    border-radius: 5px;
+    position: relative;
+    top: 100px;
+    width: 70% !important;
+    margin-left: 15%;
+}
+.my-login-content {
+    padding: 20px 10px;    
+}
+.my-login-content label {
+    width: 100%;
+    margin: 10px 0;
+}
+.my-login-content input {
+    width: 100%;
+    margin: 10px 0; 
+}
+.my-login-content input[type=submit] {
+    width: 50%;
+    background-color: var(--form-theme-color-1);
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 5px;
+}
+.my-login-content input[type=submit]:hover {
+    width: 50%;
+    background-color: var(--form-theme-color-1-light);
+    border: none;
+    padding: 6px 10px;
+    color: white;
+}
+.my-login-content a {
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+/* dashboard */
+.dashboard-header {
+    background-color: var(--form-theme-color-1);
+    color: white;
+}
+.my-dashboard-header h4{
+    font-size: 30px;
+    margin-top: 20px;
+    width: 50%;
+    border-bottom: 1px solid
+}
+.my-dashboard-box-header {
+    border: 1px solid var(--form-theme-color-1);
+    padding: 10px 5px;
+    background-color: var(--form-theme-color-1);
+    color: white;
+}
+.my-dashboard-box {
+    border: 1px solid var(--form-theme-color-1);
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 5px;
+    height: 150px;
+}
+.my-dashboard-box-content {
+    padding: 10px 5px;
+}
+.my-dashboard-box-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/* Customer Verification Info */
+.customer-verification-info {
+    margin: 20px 0;
+}
+.customer-verification-info-vehicle-number {
+    width: 100%;
+    font-size: 25px;
+    font-weight: var(--general-font-weight);
+}
+.officer-select select{
+    width: 100%;
+}
+.officer-select label{
+    font-weight: var(--general-font-weight)
+}
+.officer-select input[type=submit] {
+    background-color: var(--form-theme-color-1);  
+    width: 100%;
+    margin: 10px auto;
+}
+.officer-select input[type=submit]:hover {
+    background-color: var(--form-theme-color-1-light);  
+}
+.customer-verification-info-table th{
+    background-color: transparent;
+    color: black;
+}
+.my-card-view
+{
+	border:2px solid black;
+	padding:20px;
+	margin:100px;
+	background-color: #ffe6e6;
+	
+}
+.my-icon-button {
+    width: 100%;
+    padding: 10px 50%;
+}
+
+/* Final Inspector Checklist */
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .15em; left: .22em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+  font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+.checklist-label {
+    width: 100%;    
+}
+
+/* radio */
+/* Base for label styling */
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .15em; left: .22em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+  font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* buttons */
+.my-btn{
+    background-color: var(--form-theme-color-1);
+    padding: 3px 15px;
+}
+.my-btn:hover{
+    background-color: var(--form-theme-color-1-light);
+}
+
+/* dashboard links */
+.w3-bar-item {
+
+}
+.w3-bar-item:hover {
+  text-decoration: none;
+  background-color: var(--form-theme-color-1) !important;
+  color: var(--whitish-text-color) !important;
+} 
+#sidebar-logout-btn {
+  padding: 5px 15px;
+  background-color: transparent;
+  border: none;
+  
+}
+#sidebar-logout-btn:hover {
+  padding: 5px 15px;
+  background-color: var(--form-theme-color-1);
+  border: none;
+  color: var(--whitish-text-color) !important;
+}
+input[type=text],input[type=password],input[type=number],input[type=date],input[type=time] select, textarea {
+  background-color: var(--form-theme-color-1-input-light) !important;
+}
+.datatable-link {
+  color: var(--form-theme-color-1);
+  text-decoration: underline;
+}
+
+/*navbar sidebar*/
+.navbar-userpart {
+  float: right;
+  margin-right: 40px;
+}
+.navbar-userpart-username {
+  font-size: 18px !important;
+}
+
+.navbar-logo-link:hover {
+	text-decoration: none;
+	color: var(--whitish-text-color  );
+}
+.overlay{
+	 position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+/* Dharavi cards */
+/*col_3*/
+.widget{
+  padding:0;
+}
+.col-md-3.widget.widget1 {
+  width: 22.5%;
+}
+.r3_counter_box {
+  min-height: 100px;
+  background: #ffffff;
+  text-align: center;
+  position: relative;
+}
+.r3_counter_box .fa {
+  margin-right: 0px;
+    width: 66px;
+    height: 130px;
+    text-align: center;
+    line-height: 105px;
+    font-size: 3.5em;
+}
+.r3_counter_box .fa-check-square{
+  color:#8BC34A;
+}
+.r3_counter_box .fa-car {
+  color:#00BCD4;
+}
+.r3_counter_box .fa-lock {
+  color:#FFCA28;
+}
+.r3_counter_box .fa-wrench {
+  color:#F44336;
+}
+.r3_counter_box .fa-tint{
+  color:#8BC34A;
+}
+.stats span{
+  color:#999;
+  font-size:14px;
+}
+.fa.pull-left {
+  margin-right: 10% !important;
+}
+.pull-left1 {
+    margin: 5.3% 5% 0 5.3% !important;
+}
+.icon-rounded{
+  background-color:#a88add;
+  color: #ffffff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  font-size: 25px;
+}
+.r3_counter_box.stats {
+  padding-left: 85px;
+}
+.r3_counter_box h5 {
+  margin:10px 0;
+    color: #575757;
+    font-size: 2.5em;
+}
+i.user1{
+  background:#27cce4;
+}
+i.user2{
+  background:#b8c9f1;
+}
+i.dollar1{
+  background:#bdc3c7;;
+}
+.widget1 {
+  margin-right: 1.5%;
+}
+.widget{}
+.world-map {
+  width: 64%;
+  float: left;
+  background: #4597a8;
+  position: relative;
+  padding: 2em 2em 0 2em;
+}
+.world-map h3 {
+  float: left;
+  font-size: 1.9em;
+  color: #fff;
+  font-weight: 600;
+  padding: 0em 0 0.5em 0;
+}
+.world-map p {
+  float: right;
+  font-size: 1.3em;
+  color: #fff;
+  font-weight: 300;
+  padding: 0.5em 0 0.5em 0;
+}
+
+
+
+/*cards*/
+.r3_counter_box1 {
+  min-height: 100px;
+  background: #ffffff;
+}
+
+.stats {
+  overflow: hidden;
+    border-top: 1px solid #DDD;
+    background: #f9f9f9;
+    padding: 1.5em;
+}
+.grow{
+  position: absolute;
+    top:47%;
+    left:20% !important ;
+    background:#8BC34A;
+    width: 160px;
+    height: 30px;
+    padding: .4em 0 0;
+}
+
+.grow1 {
+    background: #00BCD4;
+}
+.grow2 {
+    background:#FFCA28;
+}
+.grow3 {
+    background: #F44336;
+}
+.grow1,.grow3,.grow2 {
+    left: 36%;
+}
+.widget-footer.clearfix {
+  margin: 1em 0 0 0;
+}
+div#page-wrapper {
+    padding: 2em 2em 0.1em;
+}*
+.widget {
+    width: 23.5%;
+    float: left;
+  }
+  .widget1 {
+    margin-right: 2%;
+  }
+/*.col-md-3.widget {
+  width:100%;
+  float:none;
+}*/
+.icon-rounded{
+  background-color:#a88add;
+  color: #ffffff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  font-size: 25px;
+}
+/*cards*/
+.new-card-number {
+	font-size: 30px !important; 
+}

@@ -1,0 +1,15 @@
+<%
+  if( ! ((String)session.getAttribute("officer_role")).equals("receptionist")  ){
+	  response.sendRedirect("../notaccess.jsp");
+  }
+  
+  %>
+<header>
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+            <button class="w3-bar-item w3-button w3-large"
+            onclick="w3_close()">Close &times;</button>
+             <h3 class="w3-bar-item">Menu</h3>
+        <a href="receptionistDashboard.jsp" class="w3-bar-item w3-button">Dashboard</a>
+        <a href="search.jsp" class="w3-bar-item w3-button">Search Customer</a>
+        <a href="serviceadvisorlist.jsp" class="w3-bar-item w3-button">Service Advisor List</a>
+    </header>
