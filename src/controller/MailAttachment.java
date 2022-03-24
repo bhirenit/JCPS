@@ -25,24 +25,18 @@ public class MailAttachment {
 
 	      // Sender's email ID needs to be mentioned
 
-	      final String username = "vgecit2020@gmail.com";//change accordingly
-	      final String password = "16017011600132";//change accordingly
+	
+	      MailCredentials mailCredentials = new MailCredentials();
 
-	      String host = "smtp.gmail.com";
-
-	      Properties props = new Properties();
-	      props.put("mail.smtp.auth", "true");
-	      props.put("mail.smtp.starttls.enable", "true");
-	      props.put("mail.smtp.host", host);
-	      props.put("mail.smtp.port", "587");
+	      final String username = mailCredentials.getUsername();
+	      final String password = mailCredentials.getPassword();
+	      	     
+	      String host = mailCredentials.getHost();
+	      
+	      Properties props = mailCredentials.getProperties();
 
 	      // Get the Session object.
-	      Session session = Session.getInstance(props,
-	         new javax.mail.Authenticator() {
-	            protected PasswordAuthentication getPasswordAuthentication() {
-	               return new PasswordAuthentication(username, password);
-	            }
-	         });
+	      Session session = getSession(props, username, password);
 
 	      try {
 	         // Create a default MimeMessage object.
@@ -71,12 +65,7 @@ public class MailAttachment {
 	         multipart.addBodyPart(messageBodyPart);
 
 	         // Part two is attachment
-	         messageBodyPart = new MimeBodyPart();
-	         String filename = path;
-	         DataSource source = new FileDataSource(filename);
-	         messageBodyPart.setDataHandler(new DataHandler(source));
-	         messageBodyPart.setFileName("Jobcard.pdf");
-	         multipart.addBodyPart(messageBodyPart);
+	         attachMessage(messageBodyPart, path, multipart);
 
 	         // Send the complete message parts
 	         message.setContent(multipart);
@@ -89,5 +78,43 @@ public class MailAttachment {
 	      } catch (MessagingException e) {
 	         throw new RuntimeException(e);
 	      }
+	}
+	
+	// Get the Session object.
+	//Refactoring-Extract method
+		//Extracted method: [getSession()] 
+		//From class: [MailAttachment]
+		// Why? -> The block of code dedicated to get the session object, so that can be done by 
+		//		   introducing the getSession() method and call that method from the class.
+	public static Session getSession(Properties props, String username, String password)
+	{
+		return Session.getInstance(props,
+				new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(username, password);
+					}
+				});
+	}
+	
+	
+	//Refactoring-Extract method
+		//Extracted method: [attachMessage()] 
+		//From class: [MailAttachment]
+		// Why? -> The block of code dedicated to attach the message to the pdf file, so that can be done by 
+		//		   introducing the attachMessage() method and call that method from the class.
+	public static void attachMessage(BodyPart messageBodyPart, String path, Multipart multipart)
+	{
+        messageBodyPart = new MimeBodyPart();
+        String filename = path;
+        DataSource source = new FileDataSource(filename);
+        try {
+			messageBodyPart.setDataHandler(new DataHandler(source));
+			messageBodyPart.setFileName("Jobcard.pdf");
+	        multipart.addBodyPart(messageBodyPart);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        	
 	}
 }

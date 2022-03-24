@@ -8,38 +8,6 @@ import java.util.List;
 
 public class AppointmentDao {
 
-	public static int save(Appointment app){  
-		  
-        int status=0;  	
-        try{  
-            Connection con=ConnectionDb.getConnection();  
-            PreparedStatement ps=con.prepareStatement(  
-                         "insert into appointment(vehicle_number) values (?)");  
-            
-            ps.setString(1, app.getVehicleNumber());
-            
-            status=ps.executeUpdate();   
-            con.close();  
-        }catch(Exception ex){ex.printStackTrace();}  
-          
-        return status;  
-	}
-	
-	public static int update(Appointment app){  
-		  
-        int status=0;  	
-        try{  
-            Connection con=ConnectionDb.getConnection();  
-            PreparedStatement ps=con.prepareStatement("update appointment set work_type='"+app.getWorkType()+"' , request_date = '"+app.getRequestDate()+"',running_km = '"+app.getRunningKM()+"',request_time = '"+app.getRequestTime()+"' where vehicle_number = '"+app.getVehicleNumber()+"' ");  
-            
-            status=ps.executeUpdate();   
-            System.out.println(status);
-            con.close();  
-        }catch(Exception ex){ex.printStackTrace();}  
-          
-        return status;  
-    }
-	
 	 public static int getCount()
 	 {
 		  int count = 0;
