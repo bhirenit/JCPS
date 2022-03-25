@@ -59,11 +59,6 @@ public class UpdateAppointment extends HttpServlet {
         app.setRunningKM(runningKm);
         app.setWorkType(workType);
         
-        
-        
-        
-        
-        
         int status1=AppointmentDao.update(app);
 		
 		

@@ -33,22 +33,24 @@ public class Login extends HttpServlet {
 				session.setAttribute("officer_name", oi.getOfficerName());
 				session.setAttribute("officer_username", oi.getOfficerUsername());
 				session.setAttribute("officer_role", oi.getOfficerRole());
-				switch(oi.getOfficerRole())
-				{
-				case "service_advisor" : response.sendRedirect("serviceadvisor/saDashboard.jsp");
-										 break;
-				case "floor_incharge" : response.sendRedirect("floorincharge/fincDashboard.jsp");
-				 						break; 
-				case "receptionist" : response.sendRedirect("receptionist/receptionistDashboard.jsp");
-				 					  break;
-				case "customer" : response.sendRedirect("regularcustomer/customerDashboard.jsp");
-										 break;
-				case "admin" : response.sendRedirect("admin/adminDashboard.jsp");
-							   break;
-				case "insurance" : response.sendRedirect("insurance/insuranceDashboard.jsp");
-				   break;
-				default : response.sendRedirect("index.jsp");
-				}
+				
+				//Refactoring Method: Replacing Conditional with Polymorphism
+				//Class: [controller/Login.java]
+				//Why? -> Switch case was implemented to redirect the officer based on their role. 
+				//How?->	So,here, by removing the switch case, I replaced them with super class of [OfficerRole]
+				//		  	and subclass such as [service_advisor], [floor_incharge], [receptionist], [customer],
+				//		  	[admin], [insurance].
+				
+				OfficerRole officerRole = new OfficerRole() {
+					
+					@Override
+					public int Type() {
+						// TODO Auto-generated method stub
+						return 0;
+					}
+				};
+				
+				officerRole.sendRedirectByOfficerRole(response, oi);
 			}
 			else
 			{

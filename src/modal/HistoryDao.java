@@ -8,24 +8,28 @@ import java.util.List;
 
 public class HistoryDao {
 
-	public static int save(History h) {
-			  
+	public static int save(History history) {
+			
+			//Refactoring Method: Rename Variable in class: [HistoryDao]
+			//ps -> preparedStatement
+			//h -> history
+		
 	        int status=0;  	
 	        try{  
 	            Connection con=ConnectionDb.getConnection();  
-	            PreparedStatement ps=con.prepareStatement(  
+	            PreparedStatement preparedStatement=con.prepareStatement(  
 	                         "insert into history(history_id,vehicle_number,officer_username,running_km,work_type,arrival_date,arrival_time,delivery_date,delivery_time) values (?,?,?,?,?,?,?,?,?)");  
-	            ps.setString(1, h.getHistoryId());
-	            ps.setString(2, h.getVehicleNumber());
-	            ps.setString(3, h.getOfficerUsername());
-	            ps.setInt(4, h.getRunningKM());
-	            ps.setString(5, h.getWorkType());
-	            ps.setString(6, h.getArrivalDate());
-	            ps.setString(7, h.getArrivalTime());
-	            ps.setString(8, h.getDeliveryDate());
-	            ps.setString(9, h.getDeliveryTime());
+	            preparedStatement.setString(1, history.getHistoryId());
+	            preparedStatement.setString(2, history.getVehicleNumber());
+	            preparedStatement.setString(3, history.getOfficerUsername());
+	            preparedStatement.setInt(4, history.getRunningKM());
+	            preparedStatement.setString(5, history.getWorkType());
+	            preparedStatement.setString(6, history.getArrivalDate());
+	            preparedStatement.setString(7, history.getArrivalTime());
+	            preparedStatement.setString(8, history.getDeliveryDate());
+	            preparedStatement.setString(9, history.getDeliveryTime());
 	            
-	            status=ps.executeUpdate();   
+	            status=preparedStatement.executeUpdate();   
 	            con.close();  
 	        }catch(Exception ex){ex.printStackTrace();}  
 	          
@@ -37,22 +41,22 @@ public class HistoryDao {
 		 List<History> list=new ArrayList<History>();  
 	        try{  
 	            Connection con=ConnectionDb.getConnection();  
-	            PreparedStatement ps = con.prepareStatement("select * from history where vehicle_number=?") ;
+	            PreparedStatement preparedStatement = con.prepareStatement("select * from history where vehicle_number=?") ;
 
-	            ps.setString(1, vehicle_number);   
-	            ResultSet rs = ps.executeQuery();
+	            preparedStatement.setString(1, vehicle_number);   
+	            ResultSet rs = preparedStatement.executeQuery();
 	            while(rs.next()){  
-	            	History h = new History();
-	            	h.setHistoryId(rs.getString("history_id"));
-	            	h.setVehicleNumber(rs.getString("vehicle_number"));
-	            	h.setOfficerUsername(rs.getString("officer_username"));
-	            	h.setRunningKM(rs.getInt("running_km"));
-	            	h.setWorkType(rs.getString("work_type"));
-	            	h.setArrivalDate(rs.getString("arrival_date"));
-	            	h.setArrivaltime(rs.getString("arrival_time"));
-	            	h.setDeliveryDate(rs.getString("delivery_date"));
-	            	h.setDeliveryTime(rs.getString("delivery_time"));
-	            	list.add(h);
+	            	History history = new History();
+	            	history.setHistoryId(rs.getString("history_id"));
+	            	history.setVehicleNumber(rs.getString("vehicle_number"));
+	            	history.setOfficerUsername(rs.getString("officer_username"));
+	            	history.setRunningKM(rs.getInt("running_km"));
+	            	history.setWorkType(rs.getString("work_type"));
+	            	history.setArrivalDate(rs.getString("arrival_date"));
+	            	history.setArrivaltime(rs.getString("arrival_time"));
+	            	history.setDeliveryDate(rs.getString("delivery_date"));
+	            	history.setDeliveryTime(rs.getString("delivery_time"));
+	            	list.add(history);
 	            }  
 	            con.close();  
 	        }catch(Exception e){e.printStackTrace();}   
@@ -69,17 +73,17 @@ public class HistoryDao {
 	            ps.setString(1, vehicle_number);   
 	            ResultSet rs = ps.executeQuery();
 	            while(rs.next()){  
-	            	History h = new History();
-	            	h.setHistoryId(rs.getString("history_id"));
-	            	h.setVehicleNumber(rs.getString("vehicle_number"));
-	            	h.setOfficerUsername(rs.getString("officer_username"));
-	            	h.setRunningKM(rs.getInt("running_km"));
-	            	h.setWorkType(rs.getString("work_type"));
-	            	h.setArrivalDate(rs.getString("arrival_date"));
-	            	h.setArrivaltime(rs.getString("arrival_time"));
-	            	h.setDeliveryDate(rs.getString("delivery_date"));
-	            	h.setDeliveryTime(rs.getString("delivery_time"));
-	            	list.add(h);
+	            	History history = new History();
+	            	history.setHistoryId(rs.getString("history_id"));
+	            	history.setVehicleNumber(rs.getString("vehicle_number"));
+	            	history.setOfficerUsername(rs.getString("officer_username"));
+	            	history.setRunningKM(rs.getInt("running_km"));
+	            	history.setWorkType(rs.getString("work_type"));
+	            	history.setArrivalDate(rs.getString("arrival_date"));
+	            	history.setArrivaltime(rs.getString("arrival_time"));
+	            	history.setDeliveryDate(rs.getString("delivery_date"));
+	            	history.setDeliveryTime(rs.getString("delivery_time"));
+	            	list.add(history);
 	            	
 	            }  
 	            con.close();  
@@ -89,7 +93,7 @@ public class HistoryDao {
 	
 	public static History getAllByNumber(String vehicle_number)
 	 {
-		History h = new History();
+		History history = new History();
 	        try{  
 	            Connection con=ConnectionDb.getConnection();  
 	            PreparedStatement ps = con.prepareStatement("select * from history where vehicle_number=?") ;
@@ -98,20 +102,20 @@ public class HistoryDao {
 	            ResultSet rs = ps.executeQuery();
 	            while(rs.next()){  
 	            	
-	            	h.setHistoryId(rs.getString("history_id"));
-	            	h.setVehicleNumber(rs.getString("vehicle_number"));
-	            	h.setOfficerUsername(rs.getString("officer_username"));
-	            	h.setRunningKM(rs.getInt("running_km"));
-	            	h.setWorkType(rs.getString("work_type"));
-	            	h.setArrivalDate(rs.getString("arrival_date"));
-	            	h.setArrivaltime(rs.getString("arrival_time"));
-	            	h.setDeliveryDate(rs.getString("delivery_date"));
-	            	h.setDeliveryTime(rs.getString("delivery_time"));
+	            	history.setHistoryId(rs.getString("history_id"));
+	            	history.setVehicleNumber(rs.getString("vehicle_number"));
+	            	history.setOfficerUsername(rs.getString("officer_username"));
+	            	history.setRunningKM(rs.getInt("running_km"));
+	            	history.setWorkType(rs.getString("work_type"));
+	            	history.setArrivalDate(rs.getString("arrival_date"));
+	            	history.setArrivaltime(rs.getString("arrival_time"));
+	            	history.setDeliveryDate(rs.getString("delivery_date"));
+	            	history.setDeliveryTime(rs.getString("delivery_time"));
 	            	
 	            }  
 	            con.close();  
 	        }catch(Exception e){e.printStackTrace();}   
-		 return h;
+		 return history;
 	 }
 	
 	
@@ -128,17 +132,17 @@ public class HistoryDao {
 	            ps.setString(1, officer_username);   
 	            ResultSet rs = ps.executeQuery();
 	            while(rs.next()){  
-	            	History h = new History();
-	            	h.setHistoryId(rs.getString("history_id"));
-	            	h.setVehicleNumber(rs.getString("vehicle_number"));
-	            	h.setOfficerUsername(rs.getString("officer_username"));
-	            	h.setRunningKM(rs.getInt("running_km"));
-	            	h.setWorkType(rs.getString("work_type"));
-	            	h.setArrivalDate(rs.getString("arrival_date"));
-	            	h.setArrivaltime(rs.getString("arrival_time"));
-	            	h.setDeliveryDate(rs.getString("delivery_date"));
-	            	h.setDeliveryTime(rs.getString("delivery_time"));
-	            	list.add(h);
+	            	History history = new History();
+	            	history.setHistoryId(rs.getString("history_id"));
+	            	history.setVehicleNumber(rs.getString("vehicle_number"));
+	            	history.setOfficerUsername(rs.getString("officer_username"));
+	            	history.setRunningKM(rs.getInt("running_km"));
+	            	history.setWorkType(rs.getString("work_type"));
+	            	history.setArrivalDate(rs.getString("arrival_date"));
+	            	history.setArrivaltime(rs.getString("arrival_time"));
+	            	history.setDeliveryDate(rs.getString("delivery_date"));
+	            	history.setDeliveryTime(rs.getString("delivery_time"));
+	            	list.add(history);
 
 	            	
 	            }  
@@ -152,10 +156,10 @@ public class HistoryDao {
 		    int i=0;
 	        try{  
 	            Connection con=ConnectionDb.getConnection();  
-	            PreparedStatement ps = con.prepareStatement("select * from history where officer_username = ?") ;
+	            PreparedStatement preparedStatement = con.prepareStatement("select * from history where officer_username = ?") ;
 	            
-	            ps.setString(1, officer_username);   
-	            ResultSet rs = ps.executeQuery();
+	            preparedStatement.setString(1, officer_username);   
+	            ResultSet rs = preparedStatement.executeQuery();
 	            while(rs.next()){  
 	            	i++;
 	            }  
@@ -169,18 +173,18 @@ public class HistoryDao {
 		 List<History> list=new ArrayList<History>();  
 	        try{  
 	            Connection con=ConnectionDb.getConnection();  
-	            PreparedStatement ps = con.prepareStatement("SELECT vehicle_company.vehicle_company_name as company, COUNT(history.vehicle_number) as count FROM history, vehicle_company, vehicle_info WHERE history.vehicle_number = vehicle_info.vehicle_number AND vehicle_info.vehicle_company = vehicle_company.vehicle_company_id AND history.delivery_date BETWEEN ? AND ? AND history.officer_username = ? GROUP BY vehicle_company.vehicle_company_name") ;
+	            PreparedStatement preparedStatement = con.prepareStatement("SELECT vehicle_company.vehicle_company_name as company, COUNT(history.vehicle_number) as count FROM history, vehicle_company, vehicle_info WHERE history.vehicle_number = vehicle_info.vehicle_number AND vehicle_info.vehicle_company = vehicle_company.vehicle_company_id AND history.delivery_date BETWEEN ? AND ? AND history.officer_username = ? GROUP BY vehicle_company.vehicle_company_name") ;
 
-	            ps.setString(1, from); 
-	            ps.setString(2, to);
-	            ps.setString(3, sa);
-	            ResultSet rs = ps.executeQuery();
+	            preparedStatement.setString(1, from); 
+	            preparedStatement.setString(2, to);
+	            preparedStatement.setString(3, sa);
+	            ResultSet rs = preparedStatement.executeQuery();
 	            while(rs.next()){  
-	            	History h = new History();
-	            	h.setHistoryId(rs.getString("company"));	            	
-	            	h.setRunningKM(rs.getInt("count"));
+	            	History history = new History();
+	            	history.setHistoryId(rs.getString("company"));	            	
+	            	history.setRunningKM(rs.getInt("count"));
 	            	
-	            	list.add(h);
+	            	list.add(history);
 	            }  
 	            con.close();  
 	        }catch(Exception e){e.printStackTrace();}   
@@ -192,16 +196,16 @@ public class HistoryDao {
 		 List<History> list=new ArrayList<History>();  
 	        try{  
 	            Connection con=ConnectionDb.getConnection();  
-	            PreparedStatement ps = con.prepareStatement("SELECT vehicle_company.vehicle_company_name as company, COUNT(history.vehicle_number) as count FROM history, vehicle_company, vehicle_info WHERE history.vehicle_number = vehicle_info.vehicle_number AND vehicle_info.vehicle_company = vehicle_company.vehicle_company_id AND history.officer_username = ? GROUP BY vehicle_company.vehicle_company_name ") ;
+	            PreparedStatement preparedStatement = con.prepareStatement("SELECT vehicle_company.vehicle_company_name as company, COUNT(history.vehicle_number) as count FROM history, vehicle_company, vehicle_info WHERE history.vehicle_number = vehicle_info.vehicle_number AND vehicle_info.vehicle_company = vehicle_company.vehicle_company_id AND history.officer_username = ? GROUP BY vehicle_company.vehicle_company_name ") ;
 
-	            ps.setString(1, sa); 	           
-	            ResultSet rs = ps.executeQuery();
+	            preparedStatement.setString(1, sa); 	           
+	            ResultSet rs = preparedStatement.executeQuery();
 	            while(rs.next()){  
-	            	History h = new History();
-	            	h.setHistoryId(rs.getString("company"));	            	
-	            	h.setRunningKM(rs.getInt("count"));
+	            	History history = new History();
+	            	history.setHistoryId(rs.getString("company"));	            	
+	            	history.setRunningKM(rs.getInt("count"));
 	            	
-	            	list.add(h);
+	            	list.add(history);
 	            }  
 	            con.close();  
 	        }catch(Exception e){e.printStackTrace();}   
@@ -215,19 +219,19 @@ public class HistoryDao {
 				 List<History> list=new ArrayList<History>();  
 			        try{  
 			            Connection con=ConnectionDb.getConnection();  
-			            PreparedStatement ps = con.prepareStatement("SELECT history.vehicle_number AS vehiclenumber, history_payment.final_amount as finalamount FROM history_payment, history WHERE history.delivery_date BETWEEN ? AND ? AND history.history_id = history_payment.history_id AND history.officer_username = ?") ;
+			            PreparedStatement preparedStatement = con.prepareStatement("SELECT history.vehicle_number AS vehiclenumber, history_payment.final_amount as finalamount FROM history_payment, history WHERE history.delivery_date BETWEEN ? AND ? AND history.history_id = history_payment.history_id AND history.officer_username = ?") ;
 
-			            ps.setString(1, from);
-			            ps.setString(2, to);
-			            ps.setString(3, sa);
+			            preparedStatement.setString(1, from);
+			            preparedStatement.setString(2, to);
+			            preparedStatement.setString(3, sa);
 			            
-			            ResultSet rs = ps.executeQuery();
+			            ResultSet rs = preparedStatement.executeQuery();
 			            while(rs.next()){  
-			            	History h = new History();
-			            	h.setHistoryId(rs.getString("vehiclenumber"));	            	
-			            	h.setRunningKM(rs.getInt("finalamount"));
+			            	History history = new History();
+			            	history.setHistoryId(rs.getString("vehiclenumber"));	            	
+			            	history.setRunningKM(rs.getInt("finalamount"));
 			            	
-			            	list.add(h);
+			            	list.add(history);
 			            }  
 			            con.close();  
 			        }catch(Exception e){e.printStackTrace();}   
@@ -238,18 +242,18 @@ public class HistoryDao {
 				 List<History> list=new ArrayList<History>();  
 			        try{  
 			            Connection con=ConnectionDb.getConnection();  
-			            PreparedStatement ps = con.prepareStatement("SELECT history.vehicle_number AS vehiclenumber, history_payment.final_amount as finalamount FROM history_payment, history WHERE history.delivery_date BETWEEN ? AND ? AND history.history_id = history_payment.history_id AND history.officer_username = ?") ;
+			            PreparedStatement preparedStatement = con.prepareStatement("SELECT history.vehicle_number AS vehiclenumber, history_payment.final_amount as finalamount FROM history_payment, history WHERE history.delivery_date BETWEEN ? AND ? AND history.history_id = history_payment.history_id AND history.officer_username = ?") ;
 
-			            ps.setString(1, year);
-			            ps.setString(2, sa);			           
+			            preparedStatement.setString(1, year);
+			            preparedStatement.setString(2, sa);			           
 			            
-			            ResultSet rs = ps.executeQuery();
+			            ResultSet rs = preparedStatement.executeQuery();
 			            while(rs.next()){  
-			            	History h = new History();
-			            	h.setHistoryId(rs.getString("vehiclenumber"));	            	
-			            	h.setRunningKM(rs.getInt("finalamount"));
+			            	History history = new History();
+			            	history.setHistoryId(rs.getString("vehiclenumber"));	            	
+			            	history.setRunningKM(rs.getInt("finalamount"));
 			            	
-			            	list.add(h);
+			            	list.add(history);
 			            }  
 			            con.close();  
 			        }catch(Exception e){e.printStackTrace();}   
@@ -257,27 +261,27 @@ public class HistoryDao {
 			 }
 
 			public static History getHistoryById(String hid) {
-				 History h = new History();  
+				 History history = new History();  
 			        try{  
 			            Connection con=ConnectionDb.getConnection();  
-			            PreparedStatement ps = con.prepareStatement("select * from history where history_id = ?") ;
-			            ps.setString(1, hid);			            
+			            PreparedStatement preparedStatement = con.prepareStatement("select * from history where history_id = ?") ;
+			            preparedStatement.setString(1, hid);			            
 			            
-			            ResultSet rs = ps.executeQuery();
+			            ResultSet rs = preparedStatement.executeQuery();
 			            while(rs.next()){	
-			            	h.setHistoryId(rs.getString("history_id"));
-			            	h.setVehicleNumber(rs.getString("vehicle_number"));
-			            	h.setOfficerUsername(rs.getString("officer_username"));
-			            	h.setRunningKM(rs.getInt("running_km"));
-			            	h.setWorkType(rs.getString("work_type"));
-			            	h.setArrivalDate(rs.getString("arrival_date"));
-			            	h.setArrivaltime(rs.getString("arrival_time"));
-			            	h.setDeliveryDate(rs.getString("delivery_date"));
-			            	h.setDeliveryTime(rs.getString("delivery_time"));
+			            	history.setHistoryId(rs.getString("history_id"));
+			            	history.setVehicleNumber(rs.getString("vehicle_number"));
+			            	history.setOfficerUsername(rs.getString("officer_username"));
+			            	history.setRunningKM(rs.getInt("running_km"));
+			            	history.setWorkType(rs.getString("work_type"));
+			            	history.setArrivalDate(rs.getString("arrival_date"));
+			            	history.setArrivaltime(rs.getString("arrival_time"));
+			            	history.setDeliveryDate(rs.getString("delivery_date"));
+			            	history.setDeliveryTime(rs.getString("delivery_time"));
 			            }  
 			            con.close();  
 			        }catch(Exception e){e.printStackTrace();}   
-				 return h;
+				 return history;
 			}
 }
 
