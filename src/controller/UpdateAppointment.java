@@ -59,7 +59,7 @@ public class UpdateAppointment extends HttpServlet {
         app.setRunningKM(runningKm);
         app.setWorkType(workType);
         
-        int status1= ap.update();
+        int status1= app.update();
 		
 		
 		
